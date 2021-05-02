@@ -9,6 +9,7 @@ const App = () => {
       <Header />
       <Navbar />
       <Profile />
+      <div>Hello world</div>
     </div>
   );
 }
