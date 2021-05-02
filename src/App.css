@@ -1,4 +1,4 @@
-.wrapper{
+.app-wrapper{
   display: grid;
 
   grid-template-areas:
@@ -11,37 +11,4 @@
 
   max-width: 1200px;
   margin: 0 auto;
-}
-
-.header {
-    grid-area: header;
-
-    background-color: rgb(195, 205, 209);
-}
-
-.header .logo {
-    width: 100px;
-    height: 100px;
-    padding: 15px 0 15px 15px ;
-}
-
-.nav {
-    grid-area: nav;
-
-    background-color: rgb(195, 205, 209);
-}
-
-.content {
-    grid-area: content;
-
-    background-color: rgb(195, 205, 209);
-}
-
-.cover_img {
-    max-height: 300px;
-    overflow: hidden;
-}
-
-.cover_img img{
-    width: 100%;
 }
