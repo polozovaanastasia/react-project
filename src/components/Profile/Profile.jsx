@@ -1,3 +1,4 @@
+import ProfilePosts from './ProfilePosts/ProfilePosts';
 import classes from './Profile.module.css';
 
 const Profile = () => {
@@ -10,20 +11,7 @@ const Profile = () => {
                 <img className={classes.avatar} src="https://html5css.ru/w3css/img_avatar3.png" alt="" />
                 <div className={classes.info}></div>
             </div>
-            <div>
-                My posts
-                <div>
-                    New post
-                </div>
-            </div>
-            <div>
-                <div>
-                    Post 1
-                </div>
-                <div>
-                    Post 2
-            </div>
-            </div>
+            <ProfilePosts />
         </main>
     );
 }
