@@ -3,7 +3,7 @@ import classes from './Profile.module.css';
 
 const Profile = () => {
     return (
-        <main className={classes.content}>
+        <div>
             <div className={classes.img}>
                 <img src="https://assets.about.me/background/users/t/a/l/talitabacetti_1400684030_05.jpg" alt="" />
             </div>
@@ -12,7 +12,7 @@ const Profile = () => {
                 <div className={classes.info}></div>
             </div>
             <ProfilePosts />
-        </main>
+        </div>
     );
 }
 export default Profile;
