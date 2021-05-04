@@ -1,0 +1,24 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 3fr 10fr;
+    
+    color: rgb(255, 255, 255);
+}
+
+.message {
+    display: flex;
+    align-items: center;
+}
+
+.users_items {
+    padding: 30px;
+}
+
+.user_active {
+    color: rgb(53, 51, 51);
+}
+
+.avatar {
+    width: 70px;
+    border-radius: 35px;
+}
