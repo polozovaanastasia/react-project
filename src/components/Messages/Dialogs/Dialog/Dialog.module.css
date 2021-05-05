@@ -1,0 +1,9 @@
+.dialog {
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    width: 70px;
+    border-radius: 35px;
+}
