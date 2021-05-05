@@ -1,6 +1,13 @@
+.posts {
+    padding: 50px;
+    padding-top: 0;
+}
+
 h2 {
     color: #484848;
 }
+
 textarea {
     display: block;
+    margin-bottom: 15px;
 }

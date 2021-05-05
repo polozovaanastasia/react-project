@@ -1,0 +1,17 @@
+.img {
+    max-height: 250px;
+    overflow: hidden;
+}
+
+.img img {
+    width: 100%;
+}
+
+.description {
+    display: flex;
+    padding: 50px;
+}
+
+.avatar {
+    width: 170px;
+}

@@ -1,9 +1,9 @@
-import './ProfilePosts.module.css';
+import classes from './ProfilePosts.module.css';
 import ProfilePost from './ProfilePost/ProfilePost';
 
 const ProfilePosts = () => {
     return (
-        <div>
+        <div className={classes.posts}>
             <h2>My posts</h2>
             <textarea name="" id="" defaultValue="New post" cols="100" rows="3" ></textarea> 
             <button>Add post</button>

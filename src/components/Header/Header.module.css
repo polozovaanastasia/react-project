@@ -1,12 +1,14 @@
 .header {
     grid-area: header;
 
-    background-color: rgb(195, 205, 209);
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    border: 1px dashed rgb(58, 59, 60);
 }
 
 .logo {
     width: 100px;
     height: 100px;
-    padding: 15px 0 15px 15px;
     cursor: pointer;
 }
