@@ -3,7 +3,8 @@
     padding-top: 30px;
 }
 
-.item img {
+.avatar {
     width: 70px;
-    border-radius: 35px;
+    margin-right: 10px;
+    border-radius: 50%;
 }

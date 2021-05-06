@@ -1,9 +1,11 @@
 .dialog {
     display: flex;
     align-items: center;
+    padding-top: 10px;
 }
 
 .avatar {
     width: 70px;
+    margin-right: 10px;
     border-radius: 35px;
 }

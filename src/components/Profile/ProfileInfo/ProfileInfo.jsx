@@ -10,6 +10,10 @@ const ProfileInfo = () => {
                 <img className={classes.avatar} src="https://html5css.ru/w3css/img_avatar3.png" alt="" />
                 <div>
                     User Name: Name
+                    <br/>
+                    Age: Age
+                    <br/>
+                    Country: Country
                 </div>
             </div>
         </div>

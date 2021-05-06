@@ -5,8 +5,8 @@ import Dialogs from './Dialogs/Dialogs';
 const Messages = () => {
     return (
         <div className={classes.messages}>
-           <Users />
-           <Dialogs />
+            <Users />
+            <Dialogs />
         </div>
     );
 }
