@@ -4,7 +4,7 @@ const Users = (props) => {
     return (
         <div className={classes.users}>
             <div className={classes.users_items}>
-                { props.usersElements }
+                {props.users}
             </div>
         </div>
     );

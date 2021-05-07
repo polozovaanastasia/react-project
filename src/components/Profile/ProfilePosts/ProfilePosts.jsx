@@ -6,7 +6,7 @@ const ProfilePosts = (props) => {
             <h2>My posts</h2>
             <textarea name="" id="" defaultValue="New post" cols="100" rows="3" ></textarea> 
             <button>Add post</button>
-            { props.profilePostsElements }
+            { props.posts }
         </div>
     );
 }

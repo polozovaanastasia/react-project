@@ -4,7 +4,7 @@ const Dialogs = (props) => {
     return (
         <div className={classes.dialogs}>
             <div className={classes.dialogs_items}>
-                { props.dialogsElements }
+                {props.dialogs}
             </div>
 
         </div>
