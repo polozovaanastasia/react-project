@@ -4,7 +4,7 @@ import ProfilePost from './ProfilePosts/ProfilePost/ProfilePost';
 
 const Profile = (props) => {
 
-    let postsElements = props.posts.map(post => (<ProfilePost avatar={post.avatar} message={post.message} key={post.id} />));
+    let postsElements = props.state.posts.map(post => (<ProfilePost avatar={post.avatar} message={post.message} key={post.id} />));
 
     return (
         <div>
