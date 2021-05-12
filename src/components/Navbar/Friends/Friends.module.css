@@ -1,3 +1,7 @@
+.friends h3 {
+    font-size: 22px;
+}
+
 .friends_items {
     display: flex;
 }

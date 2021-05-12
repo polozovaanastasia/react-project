@@ -1,5 +1,4 @@
 import { Route } from 'react-router';
-import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
 import Messages from './components/Messages/Messages';
@@ -11,7 +10,6 @@ import Settings from './components/Settings/Settings';
 
 const App = (props) => {
   return (
-    <BrowserRouter>
       <div className="app-wrapper">
         <Header />
         <Navbar state={props.state.navBar} />
@@ -25,7 +23,6 @@ const App = (props) => {
           <Route path="/settings" component={Settings} />
         </main>
       </div>
-    </BrowserRouter>
   );
 }
 export default App;
