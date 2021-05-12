@@ -6,7 +6,10 @@ const User = (props) => {
 
     return (
         <div className={classes.user}>
-            <NavLink to={path} activeClassName={classes.active}> {props.name} </NavLink>
+            <NavLink to={path} activeClassName={classes.active}> 
+                <img src={props.avatar} alt="avatar" className={classes.avatar} />
+                {props.name} 
+            </NavLink>
         </div>
 
     );
