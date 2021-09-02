@@ -1,3 +1,5 @@
+import rerenderEntireTree from "../render";
+
 let state = {
     profilePage: {
         posts: [
@@ -52,4 +54,15 @@ let state = {
     }
 }
 
-export default state;
+let addPost = (post) => {
+    let lastPost = state.profilePage.posts[state.profilePage.posts.length - 1];
+    let newPost = {
+        id: lastPost.id + 1,
+        avatar: 'https://html5css.ru/w3images/avatar3.png',
+        message: post,
+    };
+    state.profilePage.posts.push(newPost);
+    rerenderEntireTree(state);
+}
+
+export { state, addPost };
