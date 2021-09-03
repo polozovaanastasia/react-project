@@ -14,6 +14,7 @@ let state = {
                 message: 'It\'s my first post!',
             }
         ],
+        newPostText: 'Enter text',
     },
     messagesPage: {
         users: [
@@ -54,15 +55,21 @@ let state = {
     }
 }
 
-let addPost = (post) => {
+let addPost = () => {
     let lastPost = state.profilePage.posts[state.profilePage.posts.length - 1];
     let newPost = {
         id: lastPost.id + 1,
         avatar: 'https://html5css.ru/w3images/avatar3.png',
-        message: post,
+        message: state.profilePage.newPostText,
     };
     state.profilePage.posts.push(newPost);
+    state.profilePage.newPostText = '';
     rerenderEntireTree(state);
 }
 
-export { state, addPost };
+let updateNewPost = (newText) => {
+    state.profilePage.newPostText = newText;
+    rerenderEntireTree(state);
+}
+
+export { state, addPost, updateNewPost };
