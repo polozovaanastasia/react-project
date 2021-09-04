@@ -1,4 +1,4 @@
-import rerenderEntireTree from "../render";
+let rerenderEntireTree = () => {}
 
 let state = {
     profilePage: {
@@ -14,7 +14,7 @@ let state = {
                 message: 'It\'s my first post!',
             }
         ],
-        newPostText: 'Enter text',
+        newPostText: 'Enter your text',
     },
     messagesPage: {
         users: [
@@ -55,7 +55,7 @@ let state = {
     }
 }
 
-let addPost = () => {
+const addPost = () => {
     let lastPost = state.profilePage.posts[state.profilePage.posts.length - 1];
     let newPost = {
         id: lastPost.id + 1,
@@ -64,12 +64,16 @@ let addPost = () => {
     };
     state.profilePage.posts.push(newPost);
     state.profilePage.newPostText = '';
-    rerenderEntireTree(state);
+    rerenderEntireTree();
 }
 
-let updateNewPost = (newText) => {
+const updateNewPost = (newText) => {
     state.profilePage.newPostText = newText;
-    rerenderEntireTree(state);
+    rerenderEntireTree();
 }
 
-export { state, addPost, updateNewPost };
+const subscribe = (observer) => { //эта функция нам нужна, чтобы избежать циклической зависимости
+    rerenderEntireTree = observer; // observer - это паттерн
+}
+
+export { state, addPost, updateNewPost, subscribe };
