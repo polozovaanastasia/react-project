@@ -64,12 +64,12 @@ const addPost = () => {
     };
     state.profilePage.posts.push(newPost);
     state.profilePage.newPostText = '';
-    rerenderEntireTree();
+    rerenderEntireTree(state);
 }
 
 const updateNewPost = (newText) => {
     state.profilePage.newPostText = newText;
-    rerenderEntireTree();
+    rerenderEntireTree(state);
 }
 
 const subscribe = (observer) => { //эта функция нам нужна, чтобы избежать циклической зависимости
