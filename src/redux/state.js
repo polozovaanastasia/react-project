@@ -1,3 +1,6 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST = 'UPDATE-NEW-POST';
+
 let store = {
     _state: {
         profilePage: {
@@ -64,7 +67,7 @@ let store = {
         this._callSubscriber = observer; // observer - это паттерн
     },
     dispatch(action) { // { type: 'ADD-POST' }
-        if (action.type === 'ADD-POST') {
+        if (action.type === ADD_POST) {
             let lastPost = this._state.profilePage.posts[this._state.profilePage.posts.length - 1];
             let newPost = {
                 id: lastPost.id + 1,
@@ -74,12 +77,19 @@ let store = {
             this._state.profilePage.posts.push(newPost);
             this._state.profilePage.newPostText = '';
             this._callSubscriber(this._state);
-        } else if (action.type === 'UPDATE-NEW-POST') {
+        } else if (action.type === UPDATE_NEW_POST) {
             this._state.profilePage.newPostText = action.newText;
             this._callSubscriber(this._state);
         }
     },
-}
+};
+
+export const addPostActionCreator = () => {
+    return { type: ADD_POST };
+};
+export const updateNewPostActionCreator = (text) => {
+    return { type: UPDATE_NEW_POST, newText: text };
+};
 
 export default store;
 window.store = store;

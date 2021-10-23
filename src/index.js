@@ -4,7 +4,7 @@ import App from './App';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import store from './redux/store';
+import state from './redux/state';
 
 let rerenderEntireTree = (state) => {
   ReactDOM.render(
