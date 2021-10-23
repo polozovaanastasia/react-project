@@ -1,5 +1,7 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST = 'UPDATE-NEW-POST';
+const ADD_MESSAGE = 'ADD-MESSAGE';
+const UPDATE_NEW_MESSAGE = 'UPDATE-NEW-MESSAGE'
 
 let store = {
     _state: {
@@ -46,7 +48,8 @@ let store = {
                     message: 'It\'s my first post!',
                     direction: 'right',
                 }
-            ]
+            ],
+            newMessageText: 'Enter your message',
         },
         navBar: {
             friends: [
@@ -80,6 +83,18 @@ let store = {
         } else if (action.type === UPDATE_NEW_POST) {
             this._state.profilePage.newPostText = action.newText;
             this._callSubscriber(this._state);
+        } else if (action.type === ADD_MESSAGE) {
+            let newMessage = {
+                id: 1,
+                avatar: 'https://html5css.ru/w3images/avatar3.png',
+                message: this._state.messagesPage.newMessageText,
+            };
+            this._state.messagesPage.dialogs.push(newMessage);
+            this._state.messagesPage.newMessageText = '';
+            this._callSubscriber(this._state);
+        } else if (action.type === UPDATE_NEW_MESSAGE) {
+            this._state.messagesPage.newMessageText = action.newText;
+            this._callSubscriber(this._state);
         }
     },
 };
@@ -89,6 +104,14 @@ export const addPostActionCreator = () => {
 };
 export const updateNewPostActionCreator = (text) => {
     return { type: UPDATE_NEW_POST, newText: text };
+};
+
+export const addNewMessageActionCreator = () => {
+    return { type: ADD_MESSAGE };
+};
+
+export const updateNewMessageActionCreator = (text) => {
+    return { type: UPDATE_NEW_MESSAGE, newText: text };
 };
 
 export default store;
