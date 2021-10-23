@@ -12,8 +12,9 @@ let rerenderEntireTree = (state) => {
       <React.StrictMode>
         <App
           state={state}
-          addPost={store.addPost.bind(store)} //т.к. отдаем метод. чтобы потом в ProfilePosts при вызове колбэка addPost он не вызывался от props, которые туда приходят.
-          updateNewPost={store.updateNewPost.bind(store)}/>  {/* иначе у нас поменяется this внутри самого метода.Аналогично и с updateNewPost */}
+          dispatch={store.dispatch.bind(store)} />
+        {/* т.к. отдаем метод. чтобы потом в ProfilePosts при вызове колбэка addPost он не вызывался от props, которые туда приходят.
+          иначе у нас поменяется this внутри самого метода.Аналогично и с updateNewPost */}
       </React.StrictMode>
     </BrowserRouter>,
     document.getElementById('root')

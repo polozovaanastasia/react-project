@@ -53,29 +53,31 @@ let store = {
             ]
         }
     },
-    getState() {
-        return this._state;
-    },
     _callSubscriber() {
         console.log('State changed');
+    },
+
+    getState() {
+        return this._state;
     },
     subscribe(observer) { //эта функция нам нужна, чтобы избежать циклической зависимости
         this._callSubscriber = observer; // observer - это паттерн
     },
-    addPost() {
-        let lastPost = this._state.profilePage.posts[this._state.profilePage.posts.length - 1];
-        let newPost = {
-            id: lastPost.id + 1,
-            avatar: 'https://html5css.ru/w3images/avatar3.png',
-            message: this._state.profilePage.newPostText,
-        };
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostText = '';
-        this._callSubscriber(this._state);
-    },
-    updateNewPost(newText) {
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber(this._state);
+    dispatch(action) { // { type: 'ADD-POST' }
+        if (action.type === 'ADD-POST') {
+            let lastPost = this._state.profilePage.posts[this._state.profilePage.posts.length - 1];
+            let newPost = {
+                id: lastPost.id + 1,
+                avatar: 'https://html5css.ru/w3images/avatar3.png',
+                message: this._state.profilePage.newPostText,
+            };
+            this._state.profilePage.posts.push(newPost);
+            this._state.profilePage.newPostText = '';
+            this._callSubscriber(this._state);
+        } else if (action.type === 'UPDATE-NEW-POST') {
+            this._state.profilePage.newPostText = action.newText;
+            this._callSubscriber(this._state);
+        }
     },
 }
 
