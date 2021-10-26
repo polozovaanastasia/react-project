@@ -1,7 +1,6 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST = 'UPDATE-NEW-POST';
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_NEW_MESSAGE = 'UPDATE-NEW-MESSAGE'
+import messagesReducer from "./messagesReducer";
+import navbarReducer from "./navbarReducer";
+import profileReducer from "./profileReducer";
 
 let store = {
     _state: {
@@ -51,7 +50,7 @@ let store = {
             ],
             newMessageText: 'Enter your message',
         },
-        navBar: {
+        navbar: {
             friends: [
                 { id: 1, avatar: 'https://html5css.ru/w3images/avatar2.png', name: 'Dima' },
                 { id: 2, avatar: 'https://html5css.ru/w3images/avatar2.png', name: 'Vasia' },
@@ -59,7 +58,7 @@ let store = {
             ]
         }
     },
-    _callSubscriber() {
+    _callSubscriber() { //здесь лежит rerenderEntireTree из index.js
         console.log('State changed');
     },
 
@@ -70,49 +69,12 @@ let store = {
         this._callSubscriber = observer; // observer - это паттерн
     },
     dispatch(action) { // { type: 'ADD-POST' }
-        if (action.type === ADD_POST) {
-            let lastPost = this._state.profilePage.posts[this._state.profilePage.posts.length - 1];
-            let newPost = {
-                id: lastPost.id + 1,
-                avatar: 'https://html5css.ru/w3images/avatar3.png',
-                message: this._state.profilePage.newPostText,
-            };
-            this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.newPostText = '';
-            this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_POST) {
-            this._state.profilePage.newPostText = action.newText;
-            this._callSubscriber(this._state);
-        } else if (action.type === ADD_MESSAGE) {
-            let newMessage = {
-                id: 1,
-                avatar: 'https://html5css.ru/w3images/avatar3.png',
-                message: this._state.messagesPage.newMessageText,
-                direction: 'right',
-            };
-            this._state.messagesPage.dialogs.push(newMessage);
-            this._state.messagesPage.newMessageText = '';
-            this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_MESSAGE) {
-            this._state.messagesPage.newMessageText = action.newText;
-            this._callSubscriber(this._state);
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.messagesPage = messagesReducer(this._state.messagesPage, action);
+        this._state.navbar = navbarReducer(this._state.navbar, action);
+
+        this._callSubscriber(this._state);
     },
-};
-
-export const addPostActionCreator = () => {
-    return { type: ADD_POST };
-};
-export const updateNewPostActionCreator = (text) => {
-    return { type: UPDATE_NEW_POST, newText: text };
-};
-
-export const addNewMessageActionCreator = () => {
-    return { type: ADD_MESSAGE };
-};
-
-export const updateNewMessageActionCreator = (text) => {
-    return { type: UPDATE_NEW_MESSAGE, newText: text };
 };
 
 export default store;

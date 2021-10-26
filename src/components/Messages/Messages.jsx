@@ -3,7 +3,7 @@ import Users from './Users/Users';
 import User from './Users/User/User';
 import Dialogs from './Dialogs/Dialogs';
 import Dialog from './Dialogs/Dialog/Dialog';
-import { addNewMessageActionCreator, updateNewMessageActionCreator } from '../../redux/state';
+import { addNewMessageActionCreator, updateNewMessageActionCreator } from '../../redux/messagesReducer';
 
 const Messages = (props) => {
 
@@ -11,7 +11,7 @@ const Messages = (props) => {
     let dialogsElements = props.state.dialogs.map(dialog => (<Dialog avatar={dialog.avatar} message={dialog.message} direction={dialog.direction} key={dialog.id} />));
 
     let onNewMessageChange = (event) => {
-        let text = event.target.value;
+        let text = event.target.value; //связываем так вместо использования ref
         props.dispatch(updateNewMessageActionCreator(text))
     };
 
