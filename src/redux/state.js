@@ -88,6 +88,7 @@ let store = {
                 id: 1,
                 avatar: 'https://html5css.ru/w3images/avatar3.png',
                 message: this._state.messagesPage.newMessageText,
+                direction: 'right',
             };
             this._state.messagesPage.dialogs.push(newMessage);
             this._state.messagesPage.newMessageText = '';
