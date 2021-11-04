@@ -10,11 +10,7 @@ let rerenderEntireTree = (state) => {
   ReactDOM.render(
     <BrowserRouter>
       <React.StrictMode>
-        <App
-          state={state}
-          dispatch={store.dispatch.bind(store)} />
-        {/* т.к. отдаем метод. чтобы потом в ProfilePosts при вызове колбэка addPost он не вызывался от props, которые туда приходят.
-          иначе у нас поменяется this внутри самого метода.Аналогично и с updateNewPost */}
+        <App store={store} />
       </React.StrictMode>
     </BrowserRouter>,
     document.getElementById('root')

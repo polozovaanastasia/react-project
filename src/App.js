@@ -1,7 +1,7 @@
 import { Route } from 'react-router';
 import './App.css';
 import Header from './components/Header/Header';
-import Messages from './components/Messages/Messages';
+import MessagesContainer from './components/Messages/MessagesContainer';
 import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import News from './components/News/News';
@@ -12,18 +12,14 @@ const App = (props) => {
   return (
       <div className="app-wrapper">
         <Header />
-        <Navbar state={props.state.navbar} />
+        <Navbar store={props.store} />
         <main className="app-wrapper-content">
           <Route path="/profile" 
-              render={() => <Profile 
-                profilePage={props.state.profilePage}
-                newPostText={props.state.profilePage.newPostText}
-                dispatch={props.dispatch}/>} />
+              render={() => <Profile
+                store={props.store}/>} />
           <Route path="/messages" 
-              render={() => <Messages
-                state={props.state.messagesPage}
-                newMessageText={props.state.messagesPage.newMessageText}
-                dispatch={props.dispatch}/>} />
+              render={() => <MessagesContainer
+                store={props.store} />} />
           <Route path="/news" component={News} />
           <Route path="/music" component={Music} />
           <Route path="/settings" component={Settings} />

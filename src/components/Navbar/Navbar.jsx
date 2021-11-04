@@ -3,6 +3,8 @@ import classes from './Navbar.module.css';
 import Friends from './Friends/Friends';
 
 const Navbar = (props) => {
+    let state = props.store.getState().navbar;
+    
     return (
         <nav className={classes.nav}>
             <div className={classes.item}>
@@ -20,7 +22,7 @@ const Navbar = (props) => {
             <div className={classes.item}>
                 <NavLink to="/settings" activeClassName={classes.active}>Settings</NavLink>
             </div>
-            <Friends state={props.state}></Friends>
+            <Friends state={state}></Friends>
         </nav>
     );
 }
