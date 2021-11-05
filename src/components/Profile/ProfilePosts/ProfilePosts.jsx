@@ -1,7 +1,10 @@
 import React from 'react';
+import ProfilePost from './ProfilePost/ProfilePost';
 import classes from './ProfilePosts.module.css';
 
 const ProfilePosts = (props) => {
+    let postsElements = props.posts.map(post => (<ProfilePost avatar={post.avatar} message={post.message} key={post.id} />));
+
     let newPostElement = React.createRef();
 
     let onAddPost = () => {
@@ -21,7 +24,7 @@ const ProfilePosts = (props) => {
                 cols="100"
                 rows="3" />
             <button onClick={onAddPost}>Add post</button>
-            {props.posts}
+            {postsElements}
         </div>
     );
 }
