@@ -1,11 +1,11 @@
 import React from 'react';
 import { addPostActionCreator, updateNewPostActionCreator } from '../../../redux/profileReducer';
-import storeContext from '../../../storeContext';
+import StoreContext from '../../../StoreContext';
 import ProfilePosts from "./ProfilePosts";
 
 const ProfilePostsContainer = () => {
     return (
-        <storeContext.Consumer>
+        <StoreContext.Consumer>
             {store => {
                 let state = store.getState().profilePage;
 
@@ -23,7 +23,7 @@ const ProfilePostsContainer = () => {
                         updateNewPost={updateNewPost} />
                 );
             }}
-        </storeContext.Consumer>
+        </StoreContext.Consumer>
     );
 }
 export default ProfilePostsContainer;

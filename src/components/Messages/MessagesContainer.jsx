@@ -1,10 +1,10 @@
 import { addNewMessageActionCreator, updateNewMessageActionCreator } from '../../redux/messagesReducer';
-import storeContext from '../../storeContext';
+import StoreContext from '../../StoreContext';
 import Messages from "./Messages";
 
 const MessagesContainer = () => {
     return (
-        <storeContext.Consumer>
+        <StoreContext.Consumer>
             {store => {
                 let state = store.getState().messagesPage;
                 let newMessageText = state.newMessageText;
@@ -24,7 +24,7 @@ const MessagesContainer = () => {
                         updateNewMessage={updateNewMessage} />
                 );
             }}
-        </storeContext.Consumer>
+        </StoreContext.Consumer>
     );
 }
 export default MessagesContainer;
