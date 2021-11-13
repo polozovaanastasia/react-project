@@ -35,20 +35,25 @@ let initialState = {
 
 const messagesReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_MESSAGE:
+        case ADD_MESSAGE: {
             let newMessage = {
                 id: 1,
                 avatar: 'https://html5css.ru/w3images/avatar3.png',
                 message: state.newMessageText,
                 direction: 'right',
             };
-            state.dialogs.push(newMessage);
-            state.newMessageText = '';
-            return state;
+            let stateCopy = {...state};
+            stateCopy.dialogs = [...state.dialogs];
+            stateCopy.dialogs.push(newMessage);
+            stateCopy.newMessageText = '';
+            return stateCopy;
+        }
 
-        case UPDATE_NEW_MESSAGE:
-            state.newMessageText = action.newText;
-            return state;
+        case UPDATE_NEW_MESSAGE: {
+            let stateCopy = {...state};
+            stateCopy.newMessageText = action.newText;
+            return stateCopy;
+        }
 
         default:
             return state;

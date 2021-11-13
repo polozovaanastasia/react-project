@@ -17,22 +17,27 @@ let initialState = {
     newPostText: 'Enter your text',
 };
 
-const profileReducer = (state = initialState, action) => { //если state не передан, то заменяем его значением по умолчанию
+const profileReducer = (state = initialState, action) => { //если state не передан то заменяем его значением по умолчанию
     switch (action.type) {
-        case ADD_POST:
+        case ADD_POST: {
             let lastPost = state.posts[state.posts.length - 1];
             let newPost = {
                 id: lastPost.id + 1,
                 avatar: 'https://html5css.ru/w3images/avatar3.png',
                 message: state.newPostText,
             };
-            state.posts.push(newPost);
-            state.newPostText = '';
-            return state;
+            let stateCopy = {...state};
+            stateCopy.posts = [...state.posts];
+            stateCopy.posts.push(newPost);
+            stateCopy.newPostText = '';
+            return stateCopy;
+        }
 
-        case UPDATE_NEW_POST:
-            state.newPostText = action.newText;
-            return state;
+        case UPDATE_NEW_POST: {
+            let stateCopy = {...state};
+            stateCopy.newPostText = action.newText;
+            return stateCopy;
+        }
 
         default:
             return state;
