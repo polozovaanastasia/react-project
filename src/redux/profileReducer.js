@@ -19,25 +19,24 @@ let initialState = {
 
 const profileReducer = (state = initialState, action) => { //если state не передан то заменяем его значением по умолчанию
     switch (action.type) {
-        case ADD_POST: {
+        case ADD_POST:
             let lastPost = state.posts[state.posts.length - 1];
             let newPost = {
                 id: lastPost.id + 1,
                 avatar: 'https://html5css.ru/w3images/avatar3.png',
                 message: state.newPostText,
             };
-            let stateCopy = {...state};
-            stateCopy.posts = [...state.posts];
-            stateCopy.posts.push(newPost);
-            stateCopy.newPostText = '';
-            return stateCopy;
-        }
+            return {
+                ...state,
+                posts: [...state.posts, newPost], // добавить в конец spread-оператора newPost = state.posts.push(newPost);
+                newPostText: '',
+            };
 
-        case UPDATE_NEW_POST: {
-            let stateCopy = {...state};
-            stateCopy.newPostText = action.newText;
-            return stateCopy;
-        }
+        case UPDATE_NEW_POST:
+            return {
+                ...state,
+                newPostText: action.newText,
+            };
 
         default:
             return state;

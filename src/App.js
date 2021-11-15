@@ -12,7 +12,6 @@ const App = () => {
   return (
       <div className="app-wrapper">
         <Header />
-        {/* <Navbar store={props.store} /> */}
         <Navbar />
         <main className="app-wrapper-content">
           <Route path="/profile" 

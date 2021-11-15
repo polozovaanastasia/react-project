@@ -35,25 +35,25 @@ let initialState = {
 
 const messagesReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_MESSAGE: {
+        case ADD_MESSAGE:
+            let lastMessage = state.dialogs[state.dialogs.length - 1];
             let newMessage = {
-                id: 1,
+                id: lastMessage.id + 1,
                 avatar: 'https://html5css.ru/w3images/avatar3.png',
                 message: state.newMessageText,
                 direction: 'right',
             };
-            let stateCopy = {...state};
-            stateCopy.dialogs = [...state.dialogs];
-            stateCopy.dialogs.push(newMessage);
-            stateCopy.newMessageText = '';
-            return stateCopy;
-        }
+            return {
+                ...state,
+                dialogs: [ ...state.dialogs, newMessage], // добавить в конец spread-оператора newMessage = state.dialogs.push(newMessage);
+                newMessageText: '',
+            };
 
-        case UPDATE_NEW_MESSAGE: {
-            let stateCopy = {...state};
-            stateCopy.newMessageText = action.newText;
-            return stateCopy;
-        }
+        case UPDATE_NEW_MESSAGE:
+            return {
+                ...state,
+                newMessageText: action.newText,
+            };
 
         default:
             return state;
