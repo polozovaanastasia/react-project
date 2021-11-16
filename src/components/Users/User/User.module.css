@@ -1,9 +1,45 @@
-.user_wrapper {
+.user {
+    display: flex;
     margin-bottom: 30px;
+}
+
+.avatar_wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.user_wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex: 5;
+    padding: 10px;
     border: 1px #000 dashed;
+}
+
+.user_wrapper_left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 10px;
+}
+
+.user_wrapper_right {
+    text-align: right;
+    font-weight: 600;
+}
+
+.user_name {
+    font-weight: 600;
 }
 
 .avatar {
     width: 100px;
+    margin-bottom: 15px;;
     border-radius: 50%;
+}
+
+.button_follow {
+    width: 100px;
+    cursor: pointer;
 }
