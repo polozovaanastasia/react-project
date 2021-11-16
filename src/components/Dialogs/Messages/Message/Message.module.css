@@ -1,9 +1,9 @@
-.dialog {
+.message {
     display: flex;
     margin-bottom: 10px;
 }
 
-.dialog_cloud {
+.message_cloud {
     display: flex;
     align-items: center;
     position: relative;
@@ -11,36 +11,36 @@
     background: #e2dfdc;
     border-radius: 45px;
 }
-.dialog_cloud::before,
-.dialog_cloud::after {
+.message_cloud::before,
+.message_cloud::after {
     content: '';
     position: absolute;
     border-radius: 50%;
     background-color: #e2dfdc;
 }
-.dialog_cloud::before {
+.message_cloud::before {
     bottom: 0;
     z-index: -1;
     width: 20px;
     height: 20px;
 }
 
-.dialog_cloud::after {
+.message_cloud::after {
     bottom: -5px;
     width: 8px;
     height: 8px;
 }
-.left .dialog_cloud::before {
+.left .message_cloud::before {
     left: 0;
 }
-.right .dialog_cloud::before {
+.right .message_cloud::before {
     right: 0;
 }
 
-.left .dialog_cloud::after {
+.left .message_cloud::after {
     left: -5px;
 }
-.right .dialog_cloud::after {
+.right .message_cloud::after {
     right: -5px;
 }
 

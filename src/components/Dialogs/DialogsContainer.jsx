@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
-import { addNewMessageActionCreator, updateNewMessageActionCreator } from '../../redux/messagesReducer';
-import Messages from "./Messages";
+import { addNewMessageActionCreator, updateNewMessageActionCreator } from '../../redux/dialogsReducer';
+import Dialogs from "./Dialogs";
 
 let mapStateToProps = (state) => {
     return {
-        state: state.messagesPage,
-        newMessageText: state.messagesPage.newMessageText,
+        state: state.dialogsPage,
+        newMessageText: state.dialogsPage.newMessageText,
     }
 };
 
@@ -20,6 +20,6 @@ let mapDispatchToProps = (dispatch) => {
     }
 };
 
-const MessagesContainer = connect(mapStateToProps, mapDispatchToProps)(Messages);
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
 
-export default MessagesContainer;
+export default DialogsContainer;

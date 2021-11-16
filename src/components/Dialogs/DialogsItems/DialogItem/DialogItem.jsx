@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
-import classes from './User.module.css';
+import classes from './DialogItem.module.css';
 
-const User = (props) => {
+const DialogItem = (props) => {
     let path = "/messages/" + props.id;
 
     return (
@@ -14,4 +14,4 @@ const User = (props) => {
 
     );
 }
-export default User;
+export default DialogItem;

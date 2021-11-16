@@ -1,0 +1,65 @@
+const TOGGLE_FOLLOW = 'TOGGLE_FOLLOW';
+
+let initialState = {
+    users: [
+        {
+            id: 1,
+            avatar: 'https://html5css.ru/w3images/avatar2.png',
+            followed: true,
+            fullName: 'Dima',
+            status: 'Hi, how are you?',
+            location: {
+                country: 'Russia',
+                city: 'Moscow'
+            }
+        },
+        {
+            id: 2,
+            avatar: 'https://html5css.ru/w3images/avatar6.png',
+            followed: false,
+            fullName: 'Sveta',
+            status: 'Hello',
+            location: {
+                country: 'Belarus',
+                city: 'Minsk'
+            }
+        },
+        {
+            id: 3,
+            avatar: 'https://html5css.ru/w3images/avatar3.png',
+            followed: false,
+            fullName: 'Sasha',
+            status: 'Good evening ',
+            location: {
+                country: 'Ukraine',
+                city: 'Kiev'
+            }
+        },
+    ]
+};
+
+const usersReducer = (state = initialState, action) => { //если state не передан то заменяем его значением по умолчанию
+    switch (action.type) {
+        case TOGGLE_FOLLOW:
+            let stateCopy = {
+                ...state,
+                // users: [...state.users] и users: state.users.map(user => user) делают одно и тоже
+                users: state.users.map( user => {
+                    if (user.id === action.userId) {
+                        return {...user, followed: !user.followed}
+                    }
+                    return user;
+                }),
+            }
+            return stateCopy;
+
+        default:
+            return state;
+    }
+}
+
+export const toggleFollowActionCreator = (userId) => {
+    return { type: TOGGLE_FOLLOW, userId: userId };
+};
+
+export default usersReducer;

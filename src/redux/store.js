@@ -1,5 +1,5 @@
 import profileReducer from "./profileReducer";
-import messagesReducer from "./messagesReducer";
+import dialogsReducer from "./dialogsReducer";
 import navbarReducer from "./navbarReducer";
 
 let store = {
@@ -19,8 +19,8 @@ let store = {
             ],
             newPostText: 'Enter your text',
         },
-        messagesPage: {
-            users: [
+        dialogsPage: {
+            dialogs: [
                 { id: 1, avatar: 'https://html5css.ru/w3images/avatar2.png', name: 'Dima' },
                 { id: 2, avatar: 'https://html5css.ru/w3images/avatar2.png', name: 'Vasia' },
                 { id: 3, avatar: 'https://html5css.ru/w3images/avatar6.png', name: 'Katia' },
@@ -28,7 +28,7 @@ let store = {
                 { id: 5, avatar: 'https://html5css.ru/w3images/avatar6.png', name: 'Sveta' },
                 { id: 6, avatar: 'https://html5css.ru/w3images/avatar2.png', name: 'Tom!' }
             ],
-            dialogs: [
+            messages: [
                 {
                     id: 1,
                     avatar: 'https://html5css.ru/w3images/avatar2.png',
@@ -70,7 +70,7 @@ let store = {
     },
     dispatch(action) { // { type: 'ADD-POST' }
         this._state.profilePage = profileReducer(this._state.profilePage, action);
-        this._state.messagesPage = messagesReducer(this._state.messagesPage, action);
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
         this._state.navbar = navbarReducer(this._state.navbar, action);
 
         this._callSubscriber(this._state);

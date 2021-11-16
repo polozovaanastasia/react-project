@@ -2,7 +2,7 @@ const ADD_MESSAGE = 'ADD-MESSAGE';
 const UPDATE_NEW_MESSAGE = 'UPDATE-NEW-MESSAGE'
 
 let initialState = {
-    users: [
+    dialogs: [
         { id: 1, avatar: 'https://html5css.ru/w3images/avatar2.png', name: 'Dima' },
         { id: 2, avatar: 'https://html5css.ru/w3images/avatar2.png', name: 'Vasia' },
         { id: 3, avatar: 'https://html5css.ru/w3images/avatar6.png', name: 'Katia' },
@@ -10,7 +10,7 @@ let initialState = {
         { id: 5, avatar: 'https://html5css.ru/w3images/avatar6.png', name: 'Sveta' },
         { id: 6, avatar: 'https://html5css.ru/w3images/avatar2.png', name: 'Tom!' }
     ],
-    dialogs: [
+    messages: [
         {
             id: 1,
             avatar: 'https://html5css.ru/w3images/avatar2.png',
@@ -33,10 +33,10 @@ let initialState = {
     newMessageText: 'Enter your message',
 };
 
-const messagesReducer = (state = initialState, action) => {
+const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_MESSAGE:
-            let lastMessage = state.dialogs[state.dialogs.length - 1];
+            let lastMessage = state.messages[state.messages.length - 1];
             let newMessage = {
                 id: lastMessage.id + 1,
                 avatar: 'https://html5css.ru/w3images/avatar3.png',
@@ -45,7 +45,7 @@ const messagesReducer = (state = initialState, action) => {
             };
             return {
                 ...state,
-                dialogs: [ ...state.dialogs, newMessage], // добавить в конец spread-оператора newMessage = state.dialogs.push(newMessage);
+                messages: [ ...state.messages, newMessage], // добавить в конец spread-оператора newMessage = state.dialogs.push(newMessage);
                 newMessageText: '',
             };
 
@@ -68,4 +68,4 @@ export const updateNewMessageActionCreator = (text) => {
     return { type: UPDATE_NEW_MESSAGE, newText: text };
 };
 
-export default messagesReducer;
+export default dialogsReducer;
