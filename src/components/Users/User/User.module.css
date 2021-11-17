@@ -1,15 +1,19 @@
-.user {
+.wrapper {
     display: flex;
     margin-bottom: 30px;
 }
 
-.avatar_wrapper {
+.wrapper:last-child {
+    margin-bottom: 0;
+}
+
+.wrapper_avatar {
     display: flex;
     flex-direction: column;
     flex: 1;
 }
 
-.user_wrapper {
+.wrapper_info {
     display: flex;
     justify-content: space-between;
     flex: 5;
@@ -17,20 +21,21 @@
     border: 1px #000 dashed;
 }
 
-.user_wrapper_left {
+.wrapper_info_left {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin-right: 10px;
 }
 
-.user_wrapper_right {
-    text-align: right;
+.name{
+    font-size: 18px;
     font-weight: 600;
 }
 
-.user_name {
-    font-weight: 600;
+.wrapper_info_right {
+    composes: name;
+    text-align: right;
 }
 
 .avatar {

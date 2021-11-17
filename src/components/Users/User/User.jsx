@@ -5,21 +5,23 @@ const User = (props) => {
         props.toggleFollow(userId);
     }
     return (
-        <div className={classes.user}>
-            <div className={classes.avatar_wrapper}>
+        <div className={classes.wrapper}>
+            <div className={classes.wrapper_avatar}>
                 <img src={props.avatar} alt="" className={classes.avatar} />
                 <button
                     className={classes.button_follow}
                     onClick={() => onToggleFollow(props.id)}>
-                    { props.followed ? 'unfollow' : 'follow' }
+                    { props.followed 
+                        ? 'unfollow'
+                        : 'follow' }
                 </button>
             </div>
-            <div className={classes.user_wrapper}>
-                <div className={classes.user_wrapper_left}>
-                    <div className={classes.user_name}>{ props.fullName }</div>
+            <div className={classes.wrapper_info}>
+                <div className={classes.wrapper_info_left}>
+                    <div className={classes.name}>{ props.fullName }</div>
                     <div>{ props.status }</div>
                 </div>
-                <div className={classes.user_wrapper_right}>
+                <div className={classes.wrapper_info_right}>
                     <div>{ props.country + ', ' }</div>
                     <div>{ props.city }</div>
                 </div>

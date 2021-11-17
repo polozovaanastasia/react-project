@@ -1,9 +1,9 @@
-.message {
+.wrapper {
     display: flex;
     margin-bottom: 10px;
 }
 
-.message_cloud {
+.item {
     display: flex;
     align-items: center;
     position: relative;
@@ -11,36 +11,36 @@
     background: #e2dfdc;
     border-radius: 45px;
 }
-.message_cloud::before,
-.message_cloud::after {
+.item::before,
+.item::after {
     content: '';
     position: absolute;
     border-radius: 50%;
     background-color: #e2dfdc;
 }
-.message_cloud::before {
+.item::before {
     bottom: 0;
     z-index: -1;
     width: 20px;
     height: 20px;
 }
 
-.message_cloud::after {
+.item::after {
     bottom: -5px;
     width: 8px;
     height: 8px;
 }
-.left .message_cloud::before {
+.left .item::before {
     left: 0;
 }
-.right .message_cloud::before {
+.right .item::before {
     right: 0;
 }
 
-.left .message_cloud::after {
+.left .item::after {
     left: -5px;
 }
-.right .message_cloud::after {
+.right .item::after {
     right: -5px;
 }
 

@@ -5,11 +5,11 @@ const Friends = (props) => {
     let friendsElements = props.state.friends.map(friend => (<Friend avatar={friend.avatar} name={friend.name} id={friend.id} key={friend.id}/>));
 
     return (
-        <div className={classes.friends}>
+        <div className={classes.wrapper}>
             <h3>
                 Friends
             </h3>
-            <div className={classes.friends_items}>
+            <div className={classes.items}>
                 {friendsElements}
             </div>
         </div>

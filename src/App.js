@@ -1,5 +1,5 @@
 import { Route } from 'react-router';
-import './App.css';
+import classes from './App.module.css';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
@@ -11,10 +11,10 @@ import Settings from './components/Settings/Settings';
 
 const App = () => {
   return (
-    <div className="app-wrapper">
+    <div className={classes.wrapper}>
       <Header />
       <Navbar />
-      <main className="app-wrapper-content">
+      <main className={classes.wrapper_content}>
         <Route path="/profile"
           render={() => <Profile />} />
         <Route path="/messages"

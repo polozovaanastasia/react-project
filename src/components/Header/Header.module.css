@@ -1,4 +1,4 @@
-.header {
+.wrapper {
     grid-area: header;
 
     display: flex;

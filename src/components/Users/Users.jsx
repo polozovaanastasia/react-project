@@ -15,7 +15,7 @@ const Users = (props) => {
                                                     />));
 
     return (
-        <div className={classes.users}>
+        <div className={classes.wrapper}>
             {usersElements}
         </div>
     );

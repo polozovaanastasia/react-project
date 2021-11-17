@@ -11,7 +11,8 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
     return {
         toggleFollow: (userId) => {
-            dispatch(toggleFollowActionCreator(userId));
+            dispatch(toggleFollowActionCreator(userId)); 
+            // мы диспачим не action creator, а результат его работы т.е. сам action - { type: TOGGLE_FOLLOW, userId: userId };
         },
     }
 }

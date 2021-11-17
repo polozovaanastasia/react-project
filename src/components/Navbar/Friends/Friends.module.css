@@ -1,7 +1,7 @@
-.friends h3 {
+.wrapper h3 {
     font-size: 22px;
 }
 
-.friends_items {
+.items {
     display: flex;
 }

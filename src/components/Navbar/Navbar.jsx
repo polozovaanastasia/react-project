@@ -4,7 +4,7 @@ import FriendsContainer from './Friends/FriendsContainer';
 
 const Navbar = () => {
     return (
-        <nav className={classes.nav}>
+        <nav className={classes.wrapper}>
             <div className={classes.item}>
                 <NavLink to="/profile" activeClassName={classes.active}>Profile</NavLink>
             </div>
