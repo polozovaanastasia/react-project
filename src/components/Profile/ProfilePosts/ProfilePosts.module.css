@@ -11,3 +11,11 @@ textarea {
     display: block;
     margin-bottom: 15px;
 }
+
+.button_add {
+    font-size: 10px;
+}
+
+/* .button_add:hover {
+    border: 1px solid #ffffff;
+} */

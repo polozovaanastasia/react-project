@@ -43,8 +43,18 @@
     margin-bottom: 15px;;
     border-radius: 50%;
 }
-
-.button_follow {
-    width: 100px;
-    cursor: pointer;
+.button_content {
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+}
+.button_unfollow .button_img {
+    height: 20px;
+}
+.button_unfollow {
+    border-color: #ffffff;
+    background-color: #ffffff;
+}
+.button_unfollow:hover {
+    border-color: #000000;
 }

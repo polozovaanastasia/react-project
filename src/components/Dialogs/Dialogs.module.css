@@ -11,3 +11,6 @@
     padding: 30px;
     border-left: 1px dashed rgb(58, 59, 60);
 }
+.button_send {
+    font-size: 10px;
+}

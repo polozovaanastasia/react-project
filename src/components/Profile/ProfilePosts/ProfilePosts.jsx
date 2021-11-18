@@ -23,7 +23,12 @@ const ProfilePosts = (props) => {
                 ref={newPostElement}
                 cols="100"
                 rows="3" />
-            <button onClick={onAddPost}>Add post</button>
+            <button
+                className={`${classes.button_add} ${'button'}`}
+                onClick={onAddPost}>
+                    {/* Add post */}
+                    Добавить пост
+            </button>
             {postsElements}
         </div>
     );
