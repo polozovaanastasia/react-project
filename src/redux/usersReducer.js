@@ -1,41 +1,8 @@
 const TOGGLE_FOLLOW = 'TOGGLE_FOLLOW';
+const SET_USERS = 'SET_USERS';
 
 let initialState = {
-    users: [
-        {
-            id: 1,
-            avatar: 'https://html5css.ru/w3images/avatar2.png',
-            followed: true,
-            fullName: 'Dima K.',
-            status: 'Hi, how are you? Listen! Someone is knocking at the door. There are a lot of flowers on our balcony.',
-            location: {
-                country: 'Russia',
-                city: 'Moscow'
-            }
-        },
-        {
-            id: 2,
-            avatar: 'https://html5css.ru/w3images/avatar6.png',
-            followed: false,
-            fullName: 'Sveta Popova',
-            status: 'Hello! Penguins can’t fly. Elephants can cry and play.',
-            location: {
-                country: 'Belarus',
-                city: 'Minsk'
-            }
-        },
-        {
-            id: 3,
-            avatar: 'https://html5css.ru/w3images/avatar3.png',
-            followed: false,
-            fullName: 'Sasha Kovalev',
-            status: 'Good evening ',
-            location: {
-                country: 'Ukraine',
-                city: 'Kiev'
-            }
-        },
-    ]
+    users: []
 };
 
 const usersReducer = (state = initialState, action) => { // если state не передан то заменяем его значением по-умолчанию
@@ -53,6 +20,11 @@ const usersReducer = (state = initialState, action) => { // если state не 
             }
             return stateCopy;
 
+        case SET_USERS:
+            return {
+                ...state,
+                users: [ ...state.users, ...action.users]
+            }
         default:
             return state;
     }
@@ -60,6 +32,10 @@ const usersReducer = (state = initialState, action) => { // если state не 
 
 export const toggleFollowActionCreator = (userId) => {
     return { type: TOGGLE_FOLLOW, userId: userId };
+};
+
+export const setUsersActionCreator = (users) => {
+    return { type: SET_USERS, users: users };
 };
 
 export default usersReducer;
