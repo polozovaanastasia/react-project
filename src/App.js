@@ -15,15 +15,24 @@ const App = () => {
       <Header />
       <Navbar />
       <main className={classes.wrapper_content}>
-        <Route path="/profile"
+        <Route 
+          path="/profile"
           render={() => <Profile />} />
-        <Route path="/messages"
+        <Route
+          path="/messages"
           render={() => <DialogsContainer />} />
-        <Route path="/users"
+        <Route
+          path="/users"
           render={() => <UsersContainer />} />
-        <Route path="/news" component={News} />
-        <Route path="/music" component={Music} />
-        <Route path="/settings" component={Settings} />
+        <Route 
+          path="/news"
+          component={News} />
+        <Route
+          path="/music"
+          component={Music} />
+        <Route
+          path="/settings"
+          component={Settings} />
       </main>
     </div>
   );

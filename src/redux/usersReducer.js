@@ -38,7 +38,7 @@ let initialState = {
     ]
 };
 
-const usersReducer = (state = initialState, action) => { //если state не передан то заменяем его значением по умолчанию
+const usersReducer = (state = initialState, action) => { // если state не передан то заменяем его значением по-умолчанию
     switch (action.type) {
         case TOGGLE_FOLLOW:
             let stateCopy = {

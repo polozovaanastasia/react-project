@@ -4,6 +4,7 @@ const User = (props) => {
     let onToggleFollow = (userId) => {
         props.toggleFollow(userId);
     }
+    
     return (
         <div className={classes.wrapper}>
             <div className={classes.wrapper_avatar}>
