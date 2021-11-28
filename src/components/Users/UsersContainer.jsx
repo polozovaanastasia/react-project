@@ -15,7 +15,6 @@ let mapDispatchToProps = (dispatch) => {
             // мы диспачим не action creator, а результат его работы т.е. сам action - { type: TOGGLE_FOLLOW, userId: userId };
         },
         setUsers: (users) => {
-            // debugger
             dispatch(setUsersActionCreator(users));
         }
     }
